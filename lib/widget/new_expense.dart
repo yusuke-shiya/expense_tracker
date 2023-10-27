@@ -9,6 +9,7 @@ class NewExpense extends StatefulWidget {
 
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
+  final _amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +22,19 @@ class _NewExpenseState extends State<NewExpense> {
             decoration: const InputDecoration(labelText: '品目名'),
             maxLength: 20,
           ),
+          TextField(
+            controller: _amountController,
+            decoration: const InputDecoration(labelText: '金額'),
+            keyboardType: TextInputType.number,
+            maxLength: 10,
+          ),
           Row(
             children: [
               ElevatedButton(
                 onPressed: () {
                   print('_enteredTitle');
                   print(_titleController.text);
+                  print(_amountController.text);
                 },
                 child: const Text('登録'),
               ),
