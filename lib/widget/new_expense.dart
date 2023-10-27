@@ -29,7 +29,14 @@ class _NewExpenseState extends State<NewExpense> {
             maxLength: 10,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              TextButton(
+                onPressed: () {
+                  print('キャンセル');
+                },
+                child: const Text('キャンセル'),
+              ),
               ElevatedButton(
                 onPressed: () {
                   print('_enteredTitle');
