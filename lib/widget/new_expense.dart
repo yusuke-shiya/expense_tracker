@@ -8,15 +8,32 @@ class NewExpense extends StatefulWidget {
 }
 
 class _NewExpenseState extends State<NewExpense> {
+  String _enteredTitle = '';
+  void _saveChangedTitle(String value) {
+    _enteredTitle = value;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           TextField(
-            decoration: InputDecoration(labelText: '品目名'),
+            onChanged: _saveChangedTitle,
+            decoration: const InputDecoration(labelText: '品目名'),
             maxLength: 20,
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  print('_enteredTitle');
+                  print(_enteredTitle);
+                },
+                child: const Text('登録'),
+              ),
+            ],
           ),
         ],
       ),
